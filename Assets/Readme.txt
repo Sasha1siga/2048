@@ -1,14 +1,20 @@
-1) Как можно убрать материал с объекта? Понятно, как его поменять, а вот как убрать не понятно.
+1) Какие плюсы и минусы у того, чтобы сделать GameManager статичным классом?
 
-2) Поправка на ширину экрана по пикселям не работает. При изменении размера экрана скорость передвижения спавна меняется
+2) Если нажать на старт левел и после этого прекратить работу игры(нажать на значек плей вверху юнити), то начинают выскакивать ошибки:
 
-3) Почему 70 строчка кода скрипта ActiveItm работает корректно(if (_level == otherActiveItem._level)), ведь _level это приватное поле?
+MissingReferenceException: The object of type 'UniversalAdditionalCameraData' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+UnityEngine.Component.GetComponent[T] () (at <f7bcd9bfa40c4821acdda68a85850616>:0)
+UnityEngine.Rendering.VolumeDebugSettings`1+<get_cameras>d__11[T].MoveNext () (at Library/PackageCache/com.unity.render-pipelines.core@13.1.8/Runtime/Debugging/VolumeDebugSettings.cs:66)
+UnityEngine.Rendering.DebugDisplaySettingsVolume+WidgetFactory.CreateCameraSelector (UnityEngine.Rendering.DebugDisplaySettingsVolume data, System.Action`2[T1,T2] refresh) (at Library/PackageCache/com.unity.render-pipelines.core@13.1.8/Runtime/Debugging/DebugDisplaySettingsVolumes.cs:87)
+UnityEngine.Rendering.DebugDisplaySettingsVolume+SettingsPanel..ctor (UnityEngine.Rendering.DebugDisplaySettingsVolume data) (at Library/PackageCache/com.unity.render-pipelines.core@13.1.8/Runtime/Debugging/DebugDisplaySettingsVolumes.cs:363)
+UnityEngine.Rendering.DebugDisplaySettingsVolume.CreatePanel () (at Library/PackageCache/com.unity.render-pipelines.core@13.1.8/Runtime/Debugging/DebugDisplaySettingsVolumes.cs:416)
+UnityEngine.Rendering.DebugDisplaySettingsUI+<>c__DisplayClass3_0.<RegisterDebug>b__0 (UnityEngine.Rendering.IDebugDisplaySettingsData data) (at Library/PackageCache/com.unity.render-pipelines.core@13.1.8/Runtime/Debugging/DebugDisplaySettingsUI.cs:43)
+UnityEngine.Rendering.DebugDisplaySettings`1[T].ForEach (System.Action`1[T] onExecute) (at Library/PackageCache/com.unity.render-pipelines.core@13.1.8/Runtime/Debugging/DebugDisplaySettings.cs:99)
+UnityEngine.Rendering.DebugDisplaySettingsUI.RegisterDebug (UnityEngine.Rendering.IDebugDisplaySettings settings) (at Library/PackageCache/com.unity.render-pipelines.core@13.1.8/Runtime/Debugging/DebugDisplaySettingsUI.cs:54)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline..ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset asset) (at Library/PackageCache/com.unity.render-pipelines.universal@13.1.8/Runtime/UniversalRenderPipeline.cs:203)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset.CreatePipeline () (at Library/PackageCache/com.unity.render-pipelines.universal@13.1.8/Runtime/Data/UniversalRenderPipelineAsset.cs:384)
+UnityEngine.Rendering.RenderPipelineAsset.InternalCreatePipeline () (at <f7bcd9bfa40c4821acdda68a85850616>:0)
+UnityEngine.GUIUtility:ProcessEvent(Int32, IntPtr, Boolean&)
 
-4) Зачем в скрипте CollapseManager после лерпа мы заново задаем позицию itemA, ведь лерп ее уже задал?
-
-5) Как можно сделать ползунок в инспекторе, аналогичный записи:
-    [Range(0,2)]
-    public int Health = 1;
-   если для объявления health используется свойство: [field: SerializeField] public int Health{get; private set;} = 1;
-
-6) В моделях, которые ты скинул, в папке камень нет материала, есть только 2 psd и jpg. Я попробовал сделать из них материал, но получилось не как у тебя. Как из них можно сделать такой же материал? 
+Я почитал, такое у многих происходит на unity 2022

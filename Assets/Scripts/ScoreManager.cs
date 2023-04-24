@@ -84,6 +84,6 @@ public class ScoreManager : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("Win");
+        GameManager.Instance.Win();
     }
 }

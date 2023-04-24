@@ -19,7 +19,8 @@ public class ActiveItem : Item
 
     void Awake()
     {
-        Rigidbody = GetComponent<Rigidbody>(); 
+        Rigidbody = GetComponent<Rigidbody>();
+        SetLevel(_level);
     }
     protected virtual void Start()
     {
@@ -40,11 +41,7 @@ public class ActiveItem : Item
     {
         _level = level;
 
-        _levelText.text = Mathf.Pow(2, level + 1).ToString();
-
-        
-
-        
+        _levelText.text = Mathf.Pow(2, level + 1).ToString();   
     }
     void EnableTrigger()
     {

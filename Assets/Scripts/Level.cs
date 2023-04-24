@@ -12,7 +12,18 @@ public struct Task
 public class Level : MonoBehaviour
 {
     public int NumberOfBalls = 50;
-    public int MaxCreatedBallLevle = 1;
+    public int MaxCreatedBallLevle = 2;
 
     public Task[] Tasks;
+    public static Level Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else 
+            Destroy(gameObject);
+    }
 }
